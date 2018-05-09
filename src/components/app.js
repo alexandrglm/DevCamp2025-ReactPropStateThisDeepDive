@@ -1,17 +1,28 @@
 import React, { Component } from "react";
 
-const JournalEntry = () => {
-  return {
-    title: "Some content",
-    content: "Details..."
-  };
-};
+class JournalEntry extends Component {
+  render() {
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        <p>{this.props.content}</p>
+      </div>
+    );
+  }
+}
 
-const journalData = [<JournalEntry />, <JournalEntry />];
+const journalData = [
+  <JournalEntry title="Post One" content="Post content" />,
+  <JournalEntry title="Post Two" content="More content" />
+];
 
 const JournalList = () => {
-  const journalEntries = journalData.map(journalEntry => <p>journalEntry</p>);
-  return journalEntries;
+  // const journalEntries = journalData.map(journalEntry => {
+  //   <div key={journalEntry.title}>
+  //     <h2>{journalEntry.title} h2</h2>
+  //     <p>{journalEntry.content} p</p>
+  //   </div>;
+  // });
 };
 
 export default class App extends Component {
@@ -19,8 +30,8 @@ export default class App extends Component {
     return (
       <div>
         <h1>React, Props, and State Deep Dive</h1>
-
-        <JournalList />
+        <JournalEntry title="Post One" content="Post content" />
+        <JournalEntry title="Post Two" content="More content" />
       </div>
     );
   }
