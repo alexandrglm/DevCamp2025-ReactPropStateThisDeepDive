@@ -1,22 +1,43 @@
-import React from "react";
+import React, { Component } from "react";
 import { JournalEntry } from "./journal_entry";
 
-export const JournalList = () => {
-  const journalData = [
-    { title: "Post One", content: "Post content" },
-    { title: "Post Two", content: "More content" }
-  ];
+export default class JournalList extends Component {
+  constructor() {
+    super();
 
-  const journalEntries = journalData.map(journalEntry => {
+    const rawJournalData = [
+      { title: "Post One", content: "Post content", status: "draft" },
+      { title: "Post Two", content: "More content", status: "published" },
+      { title: "Post Three", content: "More content", status: "published" },
+      { title: "Post Four", content: "More content", status: "published" }
+    ];
+
+    this.state = {
+      journalData: rawJournalData
+    };
+  }
+
+  handleClick = e => {
+    console.log(e);
+  };
+
+  render() {
+    const journalEntries = this.state.journalData.map(journalEntry => {
+      return (
+        <div key={journalEntry.title}>
+          <JournalEntry
+            title={journalEntry.title}
+            content={journalEntry.content}
+          />
+        </div>
+      );
+    });
+
     return (
-      <div key={journalEntry.title}>
-        <JournalEntry
-          title={journalEntry.title}
-          content={journalEntry.content}
-        />
+      <div>
+        {journalEntries}
+        <button onClick={e => this.handleClick(e)}>Toggle Status</button>
       </div>
     );
-  });
-
-  return journalEntries;
-};
+  }
+}

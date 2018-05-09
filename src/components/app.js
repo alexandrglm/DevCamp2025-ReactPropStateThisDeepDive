@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { JournalList } from "./journal/journal_list";
+import JournalList from "./journal/journal_list";
 
 export default class App extends Component {
   render() {
