@@ -13,7 +13,8 @@ export default class JournalList extends Component {
     ];
 
     this.state = {
-      journalData: rawJournalData
+      journalData: rawJournalData,
+      heyyyyyy: "The Fonze"
     };
   }
 
@@ -35,6 +36,7 @@ export default class JournalList extends Component {
 
     return (
       <div>
+        <h2>{this.state.heyyyyyy}</h2>
         {journalEntries}
         <button onClick={e => this.handleClick(e)}>Toggle Status</button>
       </div>
