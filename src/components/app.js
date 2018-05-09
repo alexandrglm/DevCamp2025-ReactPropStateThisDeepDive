@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 
+const JournalEntry = () => {
+  return {
+    title: "Some content",
+    content: "Details..."
+  };
+};
+
+const journalData = [<JournalEntry />, <JournalEntry />];
+
 const JournalList = () => {
-  return "Some journal entries...";
+  const journalEntries = journalData.map(journalEntry => <p>journalEntry</p>);
+  return journalEntries;
 };
 
 export default class App extends Component {
