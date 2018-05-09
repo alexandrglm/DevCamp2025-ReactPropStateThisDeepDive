@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 
-class JournalEntry extends Component {
-  render() {
-    return (
-      <div>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.content}</p>
-      </div>
-    );
-  }
-}
+const JournalEntry = props => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
+    </div>
+  );
+};
 
 const journalData = [
   <JournalEntry title="Post One" content="Post content" />,
