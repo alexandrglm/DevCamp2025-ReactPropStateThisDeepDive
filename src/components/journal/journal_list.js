@@ -9,7 +9,12 @@ export const JournalList = () => {
 
   const journalEntries = journalData.map(journalEntry => {
     return (
-      <JournalEntry title={journalEntry.title} content={journalEntry.content} />
+      <div key={journalEntry.title}>
+        <JournalEntry
+          title={journalEntry.title}
+          content={journalEntry.content}
+        />
+      </div>
     );
   });
 
