@@ -9,18 +9,19 @@ const JournalEntry = props => {
   );
 };
 
-const journalData = [
-  <JournalEntry title="Post One" content="Post content" />,
-  <JournalEntry title="Post Two" content="More content" />
-];
-
 const JournalList = () => {
-  // const journalEntries = journalData.map(journalEntry => {
-  //   <div key={journalEntry.title}>
-  //     <h2>{journalEntry.title} h2</h2>
-  //     <p>{journalEntry.content} p</p>
-  //   </div>;
-  // });
+  const journalData = [
+    { title: "Post One", content: "Post content" },
+    { title: "Post Two", content: "More content" }
+  ];
+
+  const journalEntries = journalData.map(journalEntry => {
+    return (
+      <JournalEntry title={journalEntry.title} content={journalEntry.content} />
+    );
+  });
+
+  return journalEntries;
 };
 
 export default class App extends Component {
@@ -28,8 +29,8 @@ export default class App extends Component {
     return (
       <div>
         <h1>React, Props, and State Deep Dive</h1>
-        <JournalEntry title="Post One" content="Post content" />
-        <JournalEntry title="Post Two" content="More content" />
+
+        <JournalList />
       </div>
     );
   }
