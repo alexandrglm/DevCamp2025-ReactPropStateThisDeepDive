@@ -1,25 +1,37 @@
 import React, { Component } from "react";
 import { JournalEntry } from "./journal_entry";
 
+const rawJournalData = [
+  { title: "Post One", content: "Post content", status: "draft" },
+  { title: "Post Two", content: "More content", status: "published" },
+  { title: "Post Three", content: "More content", status: "published" },
+  { title: "Post Four", content: "More content", status: "published" }
+];
+
 export default class JournalList extends Component {
   constructor() {
     super();
 
-    const rawJournalData = [
-      { title: "Post One", content: "Post content", status: "draft" },
-      { title: "Post Two", content: "More content", status: "published" },
-      { title: "Post Three", content: "More content", status: "published" },
-      { title: "Post Four", content: "More content", status: "published" }
-    ];
-
     this.state = {
       journalData: rawJournalData,
-      heyyyyyy: "The Fonze"
+      isOpen: true
     };
   }
 
-  handleClick = e => {
-    console.log(e);
+  clearEntries = () => {
+    this.setState({ journalData: [], isOpen: false });
+  };
+
+  showAllEntries = () => {
+    this.setState({ journalData: rawJournalData, isOpen: true });
+  };
+
+  toggleStatus = () => {
+    if (this.state.isOpen) {
+      this.setState({ journalData: [], isOpen: false });
+    } else {
+      this.setState({ journalData: rawJournalData, isOpen: true });
+    }
   };
 
   render() {
@@ -36,9 +48,10 @@ export default class JournalList extends Component {
 
     return (
       <div>
-        <h2>{this.state.heyyyyyy}</h2>
         {journalEntries}
-        <button onClick={e => this.handleClick(e)}>Toggle Status</button>
+        <button onClick={this.clearEntries}>Clear Journal Entries</button>
+        <button onClick={this.showAllEntries}>Show All Journal Entries</button>
+        <button onClick={this.toggleStatus}>Toggle Status</button>
       </div>
     );
   }
