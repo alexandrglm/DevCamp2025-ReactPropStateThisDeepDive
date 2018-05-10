@@ -9,7 +9,7 @@ const rawJournalData = [
 ];
 
 export default class JournalList extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
@@ -48,6 +48,7 @@ export default class JournalList extends Component {
 
     return (
       <div>
+        <h1>{this.props.heading}</h1>
         {journalEntries}
         <button onClick={this.clearEntries}>Clear Journal Entries</button>
         <button onClick={this.showAllEntries}>Show All Journal Entries</button>
