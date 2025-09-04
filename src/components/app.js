@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // 5. Venimos de crear el componente journal-list.js
 import JournalList from './journal-list';
-
+  
 export default class App extends Component {
   
   render() {

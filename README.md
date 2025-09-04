@@ -32,3 +32,7 @@ Because of modern system security hardening, you need to adjust Chokidar watcher
 "scripts": {
     "preinstall": "npm set audit false",
     "start": "CHOKIDAR_USEPOLLING=true webpack-dev-server --config webpack/dev.config.js --watch",
+```
+
+#### Started using React DevTools
+- StrictMode enable (v16 legacy insertion into index.js)S
