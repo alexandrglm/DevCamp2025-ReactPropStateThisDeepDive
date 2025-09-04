@@ -16,6 +16,7 @@ De DeepDive... GUIA 2
 // 1.   Es un CLASS component? Entonces el import adecuado
 import React, { Component } from "react";
 import JournalEntry from "./journal-entry";
+import { CounterClass, CounterFunction } from "./comparison-demo";
 
 
 
@@ -51,51 +52,34 @@ export default class JournalList extends Component {
     }
 
 
-    // // 4.   REhacemos el render(), y de aquí nos vamos al app.js
-    // render() {
-
-    //     return (
-        
-    //     <div>
-    //         <h1>JOURNAL ENTRIES:</h1>
-        
-    //         {this.state.journalData.map((entry) => {
-        
-    //         return (
-    //             <div key={entry.title}>
-    //                 <h3>{entry.title}</h3>
-    //                 <p>{entry.content}</p>
-    //             </div>
-    //         );   
-    //         })}
-    //     </div>
-    //     );
-    // }
-
     // Añadimos el JournalEntry component tal cual se debería
     render() {
-
-        console.log('[NOTICE Exercise] THIS is RENDER this context', this)
-
+        console.log('[NOTICE Exercise] THIS is RENDER this context', this);
+        
         return (
-        
-        <div>
+            <div>
             <h1>Journal-List as FUNC demo entry list:</h1>
-        
+            
+            {/* Experimentación adicional - Comparación de componentes */}
+            <div style={{border: '2px dotted red', padding: '10px', margin: '20px 0'}}>
+                <h2>🔍 EXPERIMENTACIÓN: Class vs Function Components</h2>
+                <CounterClass />
+                <CounterFunction />
+            </div>
+            
+            {/* Código base del ejercicio */}
             {this.state.journalData.map((entry) => {
-        
-            return (
+                return (
                 <JournalEntry
                     key={entry.title}
                     title={entry.title}
                     content={entry.content}
                 />
-            );   
+                );
             })}
-        </div>
+            </div>
         );
     }
 }
-
 
 
