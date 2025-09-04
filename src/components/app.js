@@ -8,14 +8,13 @@ export default class App extends Component {
   render() {
   
     return (
-      
       <div className='app'>
         <h1>REACT "props" & "state" deep dive</h1>
         
         {/* 6.  CALLBACK EFECTIVO A NUESTRO COMPONENTE */}
         <JournalList />
       </div>
-    
+  
     );
   }
 }
